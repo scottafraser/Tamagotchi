@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Tomagotchi.Models
+namespace Tamagotchi.Models
 {
     public class Item
     {
