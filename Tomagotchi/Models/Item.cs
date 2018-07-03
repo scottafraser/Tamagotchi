@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+
+
 namespace Tamagotchi.Models
+                    
 {
     public class Item
     {
@@ -8,6 +12,7 @@ namespace Tamagotchi.Models
         private int _hunger;
         private int _sleep;
         private int _play;
+        private static List<Item> _pets = new List<Item> { };
 
         public Item (string name)
         {
@@ -16,6 +21,7 @@ namespace Tamagotchi.Models
             _hunger = 100;
             _sleep = 100;
             _play = 100;
+            _pets.Add(this);
         }
 
         public string GetName()
@@ -66,6 +72,24 @@ namespace Tamagotchi.Models
         {
             _play = newPlay;
         }
+
+        public static List<Item> GetAll()
+        {
+            return _pets;
+        }
+
+        //public static Item Find(string name)
+        //{
+        //    return _pets[0];
+        //}
+
+
+
+        //public void Save()
+        //{
+        //    _name.Add(this)
+        //}
+
 
     }
 }
