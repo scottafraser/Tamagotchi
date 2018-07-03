@@ -13,14 +13,17 @@ namespace Tamagotchi.Models
         private int _sleep;
         private int _play;
         private static List<Item> _pets = new List<Item> { };
+        private int _min;
+        private int _sec;
+        private DateTime timer = DateTime.Now;
 
         public Item (string name)
         {
             _name = name;
             _health = 100;
-            _hunger = 100;
-            _sleep = 100;
-            _play = 100;
+            _hunger = 20;
+            _sleep = 80;
+            _play = 50;
             _pets.Add(this);
         }
 
@@ -29,9 +32,8 @@ namespace Tamagotchi.Models
             return _name;
         }
 
-        public void SetName(string newName)
-        {
-            _name = newName;
+        public void AddHealth(int health) {
+            _health += health;
         }
 
         public int GetHealth()
@@ -39,18 +41,19 @@ namespace Tamagotchi.Models
             return _health;
         }
 
-        public void SetHealth(int newHealth)
+        public void SetName(string newName)
         {
-            _health = newHealth;
+            _name = newName;
         }
+
         public int GetHunger()
         {
             return _hunger;
         }
 
-        public void SetHunger(int newHunger)
+        public void AddHunger(int newHunger)
         {
-            _hunger = newHunger;
+            _hunger += newHunger;
         }
 
         public int GetSleep()
@@ -58,9 +61,9 @@ namespace Tamagotchi.Models
             return _sleep;
         }
 
-        public void SetSleep(int newSleep)
+        public void AddSleep(int newSleep)
         {
-            _sleep = newSleep;
+            _sleep += newSleep;
         }
 
         public int GetPlay()
@@ -68,9 +71,9 @@ namespace Tamagotchi.Models
             return _play;
         }
 
-        public void SetPlay(int newPlay)
+        public void AddPlay(int newPlay)
         {
-            _play = newPlay;
+            _play += newPlay;
         }
 
         public static List<Item> GetAll()
@@ -78,18 +81,18 @@ namespace Tamagotchi.Models
             return _pets;
         }
 
-        //public static Item Find(string name)
-        //{
-        //    return _pets[0];
-        //}
+        public int GetMin()
+        {
+            _min = int.Parse(timer.ToString("mm"));
+            return _min;
+        }
 
-
-
-        //public void Save()
-        //{
-        //    _name.Add(this)
-        //}
-
+        public int GetSec()
+        {
+            _sec = int.Parse(timer.ToString("ss"));
+            return _sec;
+        }
+      
 
     }
 }

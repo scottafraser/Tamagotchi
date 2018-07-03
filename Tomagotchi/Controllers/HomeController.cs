@@ -32,18 +32,30 @@ namespace Tamagotchi.Controllers
         [HttpGet("/feed")]
         public ActionResult Feed()
         {
+            List<Item> petStatus = Item.GetAll();
+            petStatus[0].AddHunger(25);
+            petStatus[0].AddPlay(-10);
+            petStatus[0].AddSleep(-10);
             return View();
         }
 
         [HttpGet("/play")]
         public ActionResult Play()
         {
+            List<Item> petStatus = Item.GetAll();
+            petStatus[0].AddPlay(25);
+            petStatus[0].AddHunger(-10);
+            petStatus[0].AddSleep(-10);
             return View();
         }
 
         [HttpGet("/sleep")]
         public ActionResult Sleep()
         {
+            List<Item> petStatus = Item.GetAll();
+            petStatus[0].AddSleep(25);
+            petStatus[0].AddHunger(-10);
+            petStatus[0].AddPlay(-10);
             return View();
         }
 
